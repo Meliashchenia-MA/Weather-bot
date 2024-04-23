@@ -4,8 +4,11 @@ import sqlite3
 import requests
 import json
 
-bot = telebot.TeleBot('7034766821:AAEEv9V6xWgoORseMIGVcPmq1CeeUJHnDlg')
-API = '1fb00bbb5d21452e8ec81530240804'
+f = open('token.txt', 'r')
+lines = [line.strip() for line in f]
+token = str(lines[0])
+bot = telebot.TeleBot(token)
+API = str(lines[1])
 
 @bot.message_handler(commands=['start'])
 def start(message):
